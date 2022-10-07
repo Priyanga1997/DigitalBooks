@@ -1,0 +1,123 @@
+{
+  "Routes": [
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/author",
+      "DownstreamScheme": "https",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/author/GetCreateBookDetails",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/author",
+      "DownstreamScheme": "https",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/author/PostCreateBookDetails",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/author",
+      "DownstreamScheme": "https",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/author/UpdateCreateBookDetails",
+      "UpstreamHttpMethod": [ "Put" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/author",
+      "DownstreamScheme": "https",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/author/DeleteCreateBookDetails",
+      "UpstreamHttpMethod": [ "Delete" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/author",
+      "DownstreamScheme": "https",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/author/BlockBook",
+      "UpstreamHttpMethod": [ "Put" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/author",
+      "DownstreamScheme": "https",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/author/UnblockBook",
+      "UpstreamHttpMethod": [ "Put" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/login",
+      "DownstreamScheme": "https",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/author/login-user",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/login",
+      "DownstreamScheme": "https",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/author/register-user",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/reader",
+      "DownstreamScheme": "https",
+      "ServiceName": "readerService",
+      "UpstreamPathTemplate": "/api/gateway/reader/SearchBooks",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/reader",
+      "DownstreamScheme": "https",
+      "ServiceName": "readerService",
+      "UpstreamPathTemplate": "/api/gateway/reader/login-user",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/reader",
+      "DownstreamScheme": "https",
+      "ServiceName": "readerService",
+      "UpstreamPathTemplate": "/api/gateway/reader/register-user",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/order",
+      "DownstreamScheme": "https",
+      "ServiceName": "orderService",
+      "UpstreamPathTemplate": "/api/gateway/order/CreateOrder",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/order",
+      "DownstreamScheme": "https",
+      "ServiceName": "orderService",
+      "UpstreamPathTemplate": "/api/gateway/order/GetOrder",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/order",
+      "DownstreamScheme": "https",
+      "ServiceName": "orderService",
+      "UpstreamPathTemplate": "/api/gateway/order/CancelOrder",
+      "UpstreamHttpMethod": [ "Put" ]
+    },
+  ],
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": "8500",
+      "Type": "Consul"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<table align-text="center">
+  <tr>
+    <th *ngFor="let col of gridColumns">
+      {{col.colName}}
+    </th>
+  </tr>
+  <tr *ngFor="let colObj of gridData">
+    <td>{{colObj.id}}</td>
+    <td><img src="{{imageURL}}{{colObj.image}}" style="width:100px;height:130px;"></td>
+    <td>{{colObj.title}}</td>
+    <td>{{colObj.category}}</td>
+    <td>{{colObj.price}}</td>
+    <td>{{colObj.author}}</td>
+    <td>{{colObj.publisher}}</td>
+    <td style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 40ch;">{{colObj.content}}</td>
+    <td><button class="btn" (click)="addToCart(colObj)">Add to cart</button><br/><br/>
+    <button class="btn" (click)="buyNow(colObj)">Buy now</button></td>
+  </tr>
+</table>

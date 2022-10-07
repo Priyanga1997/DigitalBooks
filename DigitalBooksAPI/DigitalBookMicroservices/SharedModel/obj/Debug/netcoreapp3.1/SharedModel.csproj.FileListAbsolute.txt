@@ -1,0 +1,13 @@
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\SharedModel\bin\Debug\netcoreapp3.1\SharedModel.deps.json
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\SharedModel\bin\Debug\netcoreapp3.1\SharedModel.runtimeconfig.json
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\SharedModel\bin\Debug\netcoreapp3.1\SharedModel.runtimeconfig.dev.json
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\SharedModel\bin\Debug\netcoreapp3.1\SharedModel.dll
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\SharedModel\bin\Debug\netcoreapp3.1\SharedModel.pdb
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\SharedModel\obj\Debug\netcoreapp3.1\SharedModel.csproj.AssemblyReference.cache
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\SharedModel\obj\Debug\netcoreapp3.1\SharedModel.GeneratedMSBuildEditorConfig.editorconfig
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\SharedModel\obj\Debug\netcoreapp3.1\SharedModel.AssemblyInfoInputs.cache
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\SharedModel\obj\Debug\netcoreapp3.1\SharedModel.AssemblyInfo.cs
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\SharedModel\obj\Debug\netcoreapp3.1\SharedModel.csproj.CoreCompileInputs.cache
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\SharedModel\obj\Debug\netcoreapp3.1\SharedModel.dll
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\SharedModel\obj\Debug\netcoreapp3.1\SharedModel.pdb
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\SharedModel\obj\Debug\netcoreapp3.1\SharedModel.genruntimeconfig.cache

@@ -1,0 +1,46 @@
+<div>
+<ng-container>
+    <div class="container">
+     <div class="card-table">
+         <div class="cart-product">
+           <table class="table table-responsive">
+               <thead>
+                   <tr>
+                      <th>Order Id</th>
+                      <th>Book Id</th>
+                      <th>Book Title</th>
+                      <th>Price</th>
+                      <th>Quantity</th>
+                      <th>Total</th>
+                      <th>Payment Type</th>
+                      <th [style.display]="'none'">Content</th>
+                      <th [style.display]="'none'">Order Status</th>
+                      <th>Order Placed Time</th>
+                      <th>Action</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr *ngFor="let item of orderData;">
+                   <td>{{item.orderId}}</td>
+                   <td>{{item.bookId}}</td>
+                   <td>{{item.title}}</td>
+                   <td>{{item.price}}</td>
+                   <td>{{item.quantity}}</td>
+                   <td>{{item.total}}</td>
+                   <td>{{item.paymentMethod}}</td>
+                   <td [style.display]="'none'">{{item.content}}</td>
+                   <td [style.display]="'none'">{{item.active}}</td>
+                   <td>{{item.orderPlacedTime}}</td>
+                  <td>
+                     <button class="btn btn-danger" (click)="cancelOrder(item)">Cancel Order</button><br/><br/>
+                    <button class="btn btn-danger" (click)="refund(item)" [disabled]="item.active=='yes'">Refund</button>
+                </td>
+                 </tr>
+               </tbody>
+           </table>
+         </div>
+     </div>
+    </div>
+    </ng-container>
+</div>
+

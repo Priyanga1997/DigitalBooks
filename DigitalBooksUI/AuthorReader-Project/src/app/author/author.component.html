@@ -1,0 +1,243 @@
+<div>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand" style="font-size: 15px;color:palevioletred;text-align: right;flex: 1;">Welcome {{username}}!!</span>
+    </div>
+  </nav>
+</div>
+<div class="book">
+<h1>Create Books</h1>
+<div>
+    <form class="example-form" [formGroup]="createForm">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Title" formControlName="title" [(ngModel)]="title"> 
+            <mat-error>Please enter the title.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Category</mat-label>
+            <mat-select placeholder="Category" formControlName="category" [(ngModel)]="category">
+                <mat-option value="Fantasy">Fantasy</mat-option>
+                <mat-option value="Spirituality">Spirituality</mat-option>
+                <mat-option value="Fiction">Fiction</mat-option>
+                <mat-option value="Science Fiction">Science Fiction</mat-option>
+                <mat-option value="Thriller">Thriller</mat-option>
+            </mat-select>
+            <mat-error>Please select the category.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Image</mat-label>
+            <input matInput>
+            <input type="file" formControlName="image" [(ngModel)]="image" (change)="uploadFile($event)"/>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Price</mat-label>
+            <input matInput type="number" placeholder="Price" formControlName="price" [(ngModel)]="price">
+            <mat-error>Please enter the price.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Author</mat-label>
+          <input matInput placeholder="Author" formControlName="author" [(ngModel)]="author">
+          <mat-error>Please enter the author name.</mat-error>
+      </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Publisher</mat-label>
+            <input matInput placeholder="Publisher" formControlName="publisher" [(ngModel)]="publisher">
+            <mat-error>Please enter the Publisher name.</mat-error>
+        </mat-form-field>
+
+        <label for="">
+            <h4>&NonBreakingSpace;&NonBreakingSpace;Active&NonBreakingSpace;&NonBreakingSpace;</h4>
+        </label>
+        <mat-radio-group formControlName="active" [(ngModel)]="active">
+            <mat-radio-button *ngFor="let active of activeList" [value]="active">
+                {{active}}
+            </mat-radio-button>
+        </mat-radio-group>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Content</mat-label>
+            <textarea matInput formControlName="content" [(ngModel)]="content"></textarea>
+            <mat-error>Please enter the content.</mat-error>
+      </mat-form-field>         
+</form>
+<div mat-dialog-action [align]="'end'">
+<button mat-raised-button color="warn" (click)="onClose()">Close</button>
+<button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addBook()">{{actionBtn}}</button>
+</div>
+</div>
+<div class= "tbl">
+<mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+            <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+          </ng-container>
+
+      <!-- Title Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+        <td mat-cell *matCellDef="let row"> {{row.title}} </td>
+      </ng-container>
+  
+      <!-- Category Column -->
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+        <td mat-cell *matCellDef="let row"> {{row.category}} </td>
+      </ng-container>
+  
+      <!-- Price Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+        <td mat-cell *matCellDef="let row"> {{row.price}} </td>
+      </ng-container>
+
+       <!-- Author Column -->
+       <ng-container matColumnDef="author">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Author </th>
+        <td mat-cell *matCellDef="let row"> {{row.author}} </td>
+      </ng-container>
+  
+      <!-- Publisher Column -->
+      <ng-container matColumnDef="publisher">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Publisher </th>
+        <td mat-cell *matCellDef="let row"> {{row.publisher}} </td>
+      </ng-container>
+
+      <!-- Active Column -->
+      <ng-container matColumnDef="active">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Active </th>
+        <td mat-cell *matCellDef="let row"> {{row.active}} </td>
+      </ng-container>
+
+      <!-- Content Column -->
+      <ng-container matColumnDef="content">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Content </th>
+        <td mat-cell *matCellDef="let row" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 25ch;"> {{row.content}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+        <td mat-cell *matCellDef="let row">
+            <button mat-icon-button color="primary" (click)="editBook(row)">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteBook(row)">
+                <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="blockBook(row)">
+              <span>Block</span>
+          </button>
+          <button mat-icon-button color="primary" (click)="unblockBook(row)">
+            <span>UnBlock</span>
+        </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+
+</div>
+</div>
+<div class="modal fade" id="modelAddSuccess" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color:green;" id="exampleModalToggleLabel">Success!!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="color: indigo;">
+       {{AddSuccessMessage}}
+      </div>
+    </div>
+  </div>
+</div>
+<a class="btn btn-primary" id="btnAddSuccessMsg" style="display: none;" data-bs-toggle="modal" href="#modelAddSuccess" role="button">Open first modal</a>
+<div class="modal fade" id="modelUpdateSuccess" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color:green;" id="exampleModalToggleLabel">Success!!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="color: indigo;">
+       {{UpdateSuccessMessage}}
+      </div>
+    </div>
+  </div>
+</div>
+<a class="btn btn-primary" id="btnUpdateSuccessMsg" style="display: none;" data-bs-toggle="modal" href="#modelUpdateSuccess" role="button">Open first modal</a>
+<div class="modal fade" id="modelDeleteSuccess" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color:green;" id="exampleModalToggleLabel">Success!!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="color: indigo;">
+       {{DeleteSuccessMessage}}
+      </div>
+    </div>
+  </div>
+</div>
+<a class="btn btn-primary" id="btnDeleteSuccessMsg" style="display: none;" data-bs-toggle="modal" href="#modelDeleteSuccess" role="button">Open first modal</a>
+<div class="modal fade" id="modelImageUploadSuccess" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color:green;" id="exampleModalToggleLabel">Success!!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="color: indigo;">
+       {{ImageUploadSuccessMessage}}
+      </div>
+    </div>
+  </div>
+</div>
+<a class="btn btn-primary" id="btnImageUploadSuccessMsg" style="display: none;" data-bs-toggle="modal" href="#modelImageUploadSuccess" role="button">Open first modal</a>
+<div class="modal fade" id="BlockBookSuccess" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color:green;" id="exampleModalToggleLabel">Success!!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="color: indigo;">
+       {{BlockBookSuccessMessage}}
+      </div>
+    </div>
+  </div>
+</div>
+<a class="btn btn-primary" id="btnBlockBookSuccessMsg" style="display: none;" data-bs-toggle="modal" href="#BlockBookSuccess" role="button">Open first modal</a>
+<div class="modal fade" id="UnblockBookSuccess" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color:green;" id="exampleModalToggleLabel">Success!!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="color: indigo;">
+       {{UnblockBookSuccessMessage}}
+      </div>
+    </div>
+  </div>
+</div>
+<a class="btn btn-primary" id="btnUnblockBookSuccessMsg" style="display: none;" data-bs-toggle="modal" href="#UnblockBookSuccess" role="button">Open first modal</a>

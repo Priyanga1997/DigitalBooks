@@ -1,0 +1,172 @@
+ .reader{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;  
+    background-color: powderblue;
+    margin-left:450px;
+    margin-right: 400px;
+    margin-bottom: 20px;
+    height:60vh;
+} 
+h2{
+    text-align: center;
+}
+.mat-form-field{
+    width:200px;
+}
+.example-button-row {
+    display: table-cell;
+    padding-top:20px;
+    display: flex;
+    justify-content: center;
+  }
+  .ReadBook{
+      display: table-cell;
+      padding-top:20px;
+      display: flex;
+      justify-content: center;
+    }
+  .example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  .form-control{
+      border-radius:3px;
+      width:600px;
+      margin-left: 20px;
+  }
+  /* .search-icon{
+      position: absolute;
+      z-index:10;
+      right:20%;
+      color:blue;
+      top:20px;
+  } */
+#cart{
+      position: absolute;
+      left: 87%;
+      top: 14px;
+  }
+.card{
+    padding:20px;
+    margin:50px;
+}
+#searchBook {
+    position: relative;
+    left: 600px;
+    bottom: 30px;
+    color: #7B7B7B;
+    cursor: pointer;
+  }
+  .card img{
+    width:200px;
+    height:200px;
+    margin-bottom:15px;
+    transition:0.3s ease-in-out;
+  }
+.btn{
+    background-color:palevioletred;
+}
+.card img:hover{
+    transition:0.3s ease-in-out;
+    transform:scale(1.1);
+    }
+    .readerLogin{
+      justify-content: center;
+      align-items: center;
+  }
+  .readerLoginForm{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      width:80%;
+  }
+  .input{
+      padding: 10px 25px;
+      margin: 10px;
+  }
+  .dropdown{
+      padding: 3px 6px;
+  }
+  .readerLoginbtn{
+      display: flex;
+      padding-left: 40px;
+  }
+  .wrapper{
+      background-color: aliceblue;
+      margin-left:320px;
+      margin-right: 400px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding-left:200px;
+      padding-right: 200px;
+      display: flex;
+      justify-content: center;
+      height: 70vh;
+      align-items: center;
+  } 
+  .orderForm{
+    justify-content: center;
+    align-items: center;
+}
+.orderDetails{
+  background-color: aliceblue;
+  margin-left:320px;
+  margin-right: 400px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left:200px;
+  padding-right: 200px;
+  display: flex;
+  justify-content: center;
+  height: 70vh;
+  align-items: center;
+} 
+.order{
+  justify-content: center;
+  align-items: center;
+}
+.submitBtn{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+.viewOrdersBtn{
+  padding-top: 20px;
+  padding-left: 30px;
+}
+table, th , td {
+  border: 1px solid grey;
+  padding: 10px 30px 10px 10px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+.card{
+  background-color: mediumaquamarine;
+}
+
+/* .searchbtn{
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+} */
+/* :host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } */
+

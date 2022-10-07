@@ -1,0 +1,58 @@
+<ng-container *ngIf="books.length !=0">
+   <div class="container">
+    <div class="card-table">
+        <div class="cart-product">
+          <table class="table table-responsive">
+              <thead>
+                  <tr>
+                     <th>Id</th>
+                     <th>Book Name</th>
+                     <th>Book Image</th>
+                     <th>Description</th>
+                     <th>Price</th>
+                     <th>Quantity</th>
+                     <th>Total</th>
+                     <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of books;">
+                  <td>{{item.id}}</td>
+                  <td>{{item.title}}</td>
+                  <td><img src="{{imageURL}}{{item.image}}" style="width:100px;height:130px;"></td>
+                  <td style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 25ch;">{{item.content}}</td>
+                  <td>{{item.price}}</td>
+                  <td>{{item.quantity}}</td>
+                  <td>{{item.total}}</td>
+                  <td>
+                      <button class="btn btn-danger" (click)="removeItem(item)"><i class="fas fa-trash-alt"></i></button>
+                  </td>
+                 <!-- <td>
+                    <button class="btn btn-primary">Buy now</button>
+                </td> -->
+                </tr>
+                <tr>
+                    <td colspan="4"></td>
+                    <td><strong>Grand Total:{{grandTotal}}</strong></td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+    </div>
+   </div>
+   <div style="margin-left: 100px;">
+    <button class="btn btn-primary" (click)="GoBack()">Go Back</button>
+</div>
+</ng-container>
+<ng-container *ngIf="books.length ==0">
+<div class="container">
+    <div class="card">
+    <div class="center">
+        <img src="" alt="">
+        <h4>Your cart is empty!</h4>
+        <h5>Add item to cart</h5>
+        <button class="btn btn-primary" (click)="navigateToReader()">Shop Now</button>
+    </div>
+</div>
+</div>
+</ng-container>
