@@ -17,7 +17,7 @@ namespace Author.Consumer
         public Task Consume(ConsumeContext<Order> context)
         {
             var data = context.Message;
-            var bookDetails = db.Books.Where(x => x.Id == data.OrderId).FirstOrDefault();
+            var bookDetails = db.Books.Where(x => x.Id == data.BookId).FirstOrDefault();
             bookDetails.Title = bookDetails.Title;
             db.Books.Update(bookDetails);
             db.SaveChanges();

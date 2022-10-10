@@ -110,55 +110,19 @@
     <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="searchAllBooks()">Search</button>
  </div>  -->
     </form>
-
-    <!-- <span class="fas fa-search search-icon"></span> -->
-
-    <!-- <div class="example-button-row"> 
-    <button mat-raised-button color="primary" (click)="searchBook($event)">Search</button> 
-</div> -->
     <div class="example-button-row">
       <ng-container>
         <app-grid-ui
           [grid-columns]="[{'colName':'id'},{'colName':'image'},{'colName':'title'},{'colName':'category'},{'colName':'price'},{'colName':'author'},{'colName':'publisher'},{'colName':'content'},{'colName':'Action'}]"
-          [grid-data]="ReaderModels" (grid-selected)="EditSearch($event)" (grid-deleted)="DeleteSearch($event)"
+          [grid-data]="ReaderModels" 
           (grid-buyBook)="BuyBook($event)"></app-grid-ui>
       </ng-container>
-      <!-- [read]="['Title: ','Category: ','Price ','Publisher: ',''Content:']" -->
-      <!-- <div class="container">
-    <div class="row">
-        <ng-container *ngFor="let item of ReaderModels">
-            <div class="card col-md-3">
-                <img src="{{item.image}}" alt="">
-                <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.Title}}</h5>
-                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.Publisher}}</p>
-                <p><strong>{{item.Price}}</strong></p>
-                <div>
-                <button class="btn" (click)="addToCart(item)">Add to cart</button>&nbsp;
-                <button class="btn">Buy now</button>
-               </div>
-            </div>
-        </ng-container>
-    </div> -->
     </div>
   </div>
 </div>
 
 <ng-template #callAPIDialog>
   <mat-dialog-content>
-    <!-- <div class="wrapper" *ngIf="readerLogin">
-  <div class="readerLogin">
-  <form class="readerLogin" [formGroup]="readerLoginForm">
-      <input type="text" placeholder="Username" class="input" [(ngModel)]="ReaderLoginModel.userName" formControlName="username">
-      <span class="text-danger" *ngIf="readerLoginForm.controls['username'].dirty && readerLoginForm.hasError('required','username')">*Username is required</span>
-      <input type="text" placeholder="Email" class="input" [(ngModel)]="ReaderLoginModel.emailId" formControlName="emailId"> 
-      <span class="text-danger" *ngIf="readerLoginForm.controls['emailId'].dirty && readerLoginForm.hasError('required','emailId')">*Email Address is required</span>
-      <div class="readerLoginbtn">
-          <button (click)="orderDetails($event)" [disabled]="readerLoginForm.invalid">Place your Order</button>
-      </div>
-  </form>
-  </div>
-  </div> -->
-    <!-- <div class="orderDetails" *ngIf="showOrder"> -->
     <div class="orderDetails">
       <div class="order">
         <form class="orderForm" [formGroup]="orderForm">
@@ -188,9 +152,7 @@
     </div>
   </mat-dialog-content>
 </ng-template>
-<!-- <div *ngIf="showViewOrder" class="viewOrdersBtn">
-  <button (click)="viewOrders()">View Orders</button>
- </div> -->
+
 <div class="example-button-row" *ngIf="showOrderDetails" [ngStyle]="{'background-image': getViewOrdersUrl()}"
   style="height:100%">
   <ng-container>
@@ -359,6 +321,11 @@
   </ng-container>
 </div>
 
+<!-- <div *ngIf ="showPaymentIdSearch" class="searchByPaymentId">
+ <span style="font-weight:bold;"> Payment Id: </span>&nbsp;<input formControlName="paymentId" type="text" style="background-color:lavender;"/>&nbsp;
+  <button class="btn btn-primary" (click)="searchByPaymentId()">Search</button>
+</div> -->
+
 <div *ngIf="showInvoice">
   <div class="container mt-3">
     <button class="btn btn-primary" (click)="downloadAsPDF()">Export To PDF</button>
@@ -369,6 +336,7 @@
         <div class="card">
           <div>
             <div class="invoice"><span class="font-weight-bold" style="font-size: 20px;">Invoice</span></div>
+            <span>Customer name: {{username}}</span>
           </div>
           <hr>
           <table class="table table-responsive">
@@ -404,4 +372,21 @@
   <div>
     <button class="btn btn-primary" (click)="GoBack()" style="margin-left: 70px;">Go Back</button>
   </div>
+
+  <div class="modal fade" id="paymentIdError" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true"
+  style="display: none;">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color:red" id="exampleModalToggleLabel">Payment Id</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="color: purple;">
+        {{PaymentIdErrorMessage}}
+      </div>
+    </div>
+  </div>
+</div>
+<a class="btn btn-primary" id="btnErrorMsgPaymentId" style="display: none;" data-bs-toggle="modal"
+  href="#paymentIdError" role="button">Open first modal</a>
 </div>

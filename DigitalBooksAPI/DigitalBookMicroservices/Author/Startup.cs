@@ -94,7 +94,6 @@ namespace Author
                 }));
             });
             services.AddMassTransitHostedService();
-            services.AddSwaggerGen();
             services.AddConsulConfig(Configuration);
             services.AddScoped<IAuthorService, AuthorServiceImpl>();
             services.AddScoped<ILoginService, LoginServiceImpl>();
@@ -115,12 +114,12 @@ namespace Author
             app.UseRouting();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthorization();
-            app.UseStaticFiles();
-            app.UseStaticFiles(new StaticFileOptions()
-            {
-                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Images")),
-                RequestPath = new PathString("/Images")
-            });
+            //app.UseStaticFiles();
+            //app.UseStaticFiles(new StaticFileOptions()
+            //{
+            //    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Images")),
+            //    RequestPath = new PathString("/Images")
+            //});
             app.UseSwagger();
             app.UseSwaggerUI(c => {
                 c.SwaggerEndpoint("/swagger/v2/swagger.json", "Author app v2");

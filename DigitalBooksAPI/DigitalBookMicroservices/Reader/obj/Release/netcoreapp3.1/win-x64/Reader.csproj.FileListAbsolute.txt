@@ -77,7 +77,6 @@ D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Reader\obj\Release\netcor
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Reader\obj\Release\netcoreapp3.1\win-x64\staticwebassets\Reader.StaticWebAssets.xml
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Reader\obj\Release\netcoreapp3.1\win-x64\scopedcss\bundle\Reader.styles.css
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Reader\obj\Release\netcoreapp3.1\win-x64\Reader.RazorTargetAssemblyInfo.cache
-D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Reader\obj\Release\netcoreapp3.1\win-x64\Reader.csproj.CopyComplete
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Reader\obj\Release\netcoreapp3.1\win-x64\Reader.dll
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Reader\obj\Release\netcoreapp3.1\win-x64\Reader.pdb
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Reader\obj\Release\netcoreapp3.1\win-x64\Reader.genruntimeconfig.cache

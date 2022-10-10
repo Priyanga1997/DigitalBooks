@@ -66,7 +66,6 @@ onOptionsSelected(event:any){
   }
   else{
     this._service.readerLogin(userdata).subscribe(res=>{
-      //localStorage.setItem('authorId',res.userData.id);
       localStorage.setItem('token',res.token);
       localStorage.setItem('emailId',this.UserDataModel.emailId);
       localStorage.setItem('userName',this.UserDataModel.userName);

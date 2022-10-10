@@ -5,6 +5,9 @@ D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcor
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\Author.runtimeconfig.json
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\Author.pdb
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\Automatonymous.dll
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\Azure.Core.dll
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\Azure.Storage.Blobs.dll
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\Azure.Storage.Common.dll
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\Consul.dll
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\GreenPipes.dll
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\MassTransit.dll
@@ -51,10 +54,14 @@ D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcor
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\System.Configuration.ConfigurationManager.dll
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\System.Diagnostics.DiagnosticSource.dll
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\System.IO.Hashing.dll
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\System.IO.Pipelines.dll
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\System.Memory.Data.dll
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\System.Runtime.Caching.dll
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\System.Runtime.CompilerServices.Unsafe.dll
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\System.Text.Encodings.Web.dll
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\System.Text.Json.dll
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\System.Threading.Channels.dll
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\Microsoft.Data.SqlClient.SNI.dll
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\Microsoft.Data.SqlClient.SNI.pdb

@@ -77,7 +77,13 @@ D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcor
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\staticwebassets\Author.StaticWebAssets.xml
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\scopedcss\bundle\Author.styles.css
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\Author.RazorTargetAssemblyInfo.cache
-D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\Author.csproj.CopyComplete
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\Author.dll
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\Author.pdb
 D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\obj\Release\netcoreapp3.1\win-x64\Author.genruntimeconfig.cache
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\bin\Release\netcoreapp3.1\win-x64\Azure.Core.dll
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\bin\Release\netcoreapp3.1\win-x64\Azure.Storage.Blobs.dll
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\bin\Release\netcoreapp3.1\win-x64\Azure.Storage.Common.dll
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\bin\Release\netcoreapp3.1\win-x64\System.IO.Hashing.dll
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\bin\Release\netcoreapp3.1\win-x64\System.Memory.Data.dll
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\bin\Release\netcoreapp3.1\win-x64\System.Text.Encodings.Web.dll
+D:\CaseStudy\AuthorReader.API\DigitalBookMicroservices\Author\bin\Release\netcoreapp3.1\win-x64\System.Text.Json.dll

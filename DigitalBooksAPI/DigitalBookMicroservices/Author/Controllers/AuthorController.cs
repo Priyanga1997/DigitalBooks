@@ -23,7 +23,7 @@ namespace Author.Controllers
         }
 
         [HttpGet]
-        [Route("getBooksByAuthorId")]
+        [Route("getBooksByEmailId")]
         public IEnumerable<Book> Get(string emailId)
         {
             return authorService.GetCreateBookDetails(emailId);
@@ -37,34 +37,35 @@ namespace Author.Controllers
         }
 
         [HttpPost, DisableRequestSizeLimit]
+        [Route("createBooks")]
         public async Task<IActionResult> PostCreateBookDetails([FromForm] BookModel bookModel)
         {
             var file = Request.Form.Files[0];
-            var pathToSave = Directory.GetCurrentDirectory();
+            //var pathToSave = Directory.GetCurrentDirectory();
             if (file.Length > 0)
             {
-                try
+                var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+                var _filename = Path.GetFileNameWithoutExtension(fileName);
+                fileName = _filename + DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg";
+                //var fullPath = Path.Combine(pathToSave, fileName);
+                var dbPath = fileName;
+                //using (var stream = new FileStream(fullPath, FileMode.Create))
+                //{
+                //    file.CopyTo(stream);
+                //}
+                string connectionstring = "DefaultEndpointsProtocol=https;AccountName=digitalbooksimages;AccountKey=0SWZdFmNHrgIgJCeJtwBd/czrH5Yrcvsr8bh9KNI0ltSAC4PEMIvrwOy0NUOse6sKMm1FcY3hPzJ+ASt6fAyhA==;EndpointSuffix=core.windows.net";
+                string containerName = "images";
+                BlobContainerClient container = new BlobContainerClient(connectionstring, containerName);
+                var blob = container.GetBlobClient(fileName);
+                var blobstream = file.OpenReadStream();
+                await blob.UploadAsync(blobstream);
+                var URI = blob.Uri.AbsoluteUri;
+                var createBookDetails = await authorService.PostCreateBookDetails(bookModel, dbPath);
+                if (createBookDetails != null)
                 {
-                    var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-                    var _filename = Path.GetFileNameWithoutExtension(fileName);
-                    fileName = _filename + DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg";
-                    var fullPath = Path.Combine(pathToSave, fileName);
-                    var dbPath = fileName;
-                    using (var stream = new FileStream(fullPath, FileMode.Create))
-                    {
-                        file.CopyTo(stream);
-                    }
-
-                    string connectionstring = "DefaultEndpointsProtocol=https;AccountName=digitalbooksimages;AccountKey=0SWZdFmNHrgIgJCeJtwBd/czrH5Yrcvsr8bh9KNI0ltSAC4PEMIvrwOy0NUOse6sKMm1FcY3hPzJ+ASt6fAyhA==;EndpointSuffix=core.windows.net";
-                    string containerName = "images";
-                    BlobContainerClient container = new BlobContainerClient(connectionstring, containerName);
-                    var blob = container.GetBlobClient(fileName);
-                    var blobstream = System.IO.File.OpenRead(fileName);
-                    await blob.UploadAsync(blobstream);
-                    var URI = blob.Uri.AbsoluteUri;
-                    return Ok(new { dbPath });
+                    return Ok(new { Status = createBookDetails });
                 }
-                catch (Exception ex)
+                else
                 {
                     return BadRequest();
                 }
@@ -73,53 +74,44 @@ namespace Author.Controllers
             {
                 return BadRequest();
             }
-            //var file = Request.Form.Files[0];
-            //var foldername = "Images";
-            //var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), foldername);
-            //var dbPath = string.Empty;
-            //if (file.Length > 0)
-            //{
-            //    var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-            //    var fullPath = Path.Combine(pathToSave, fileName);
-            //    dbPath = Path.Combine(foldername, fileName);
-            //    using (var stream = new FileStream(fullPath, FileMode.Create))
-            //    {
-            //        file.CopyTo(stream);
-            //    }
-            //}
-
-            //var createBookDetails = await authorService.PostCreateBookDetails(bookModel, dbPath);
-            //if (createBookDetails != null)
-            //{
-            //    return Ok(new { Status = createBookDetails });
-            //}
-            //else
-            //{
-            //    return BadRequest();
-            //}
-
         }
 
 
         [HttpPut, DisableRequestSizeLimit]
+        [Route("updateBookDetails")]
         public async Task<IActionResult> UpdateCreateBookDetails([FromForm] BookModel bookModel)
         {
             var file = Request.Form.Files[0];
-            var foldername = "Images";
-            var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), foldername);
+            //var pathToSave = Directory.GetCurrentDirectory();
             if (file.Length > 0)
             {
-                var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-                var fullPath = Path.Combine(pathToSave, fileName);
-                var dbPath = Path.Combine(foldername, fileName);
-                using (var stream = new FileStream(fullPath, FileMode.Create))
+                try
                 {
-                    file.CopyTo(stream);
-                }
+                    var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+                    var _filename = Path.GetFileNameWithoutExtension(fileName);
+                    fileName = _filename + DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg";
+                    //var fullPath = Path.Combine(pathToSave, fileName);
+                    var dbPath = fileName;
+                    //using (var stream = new FileStream(fullPath, FileMode.Create))
+                    //{
+                    //    file.CopyTo(stream);
+                    //}
 
-                var updateBookDetails = await authorService.UpdateCreateBookDetails(bookModel, dbPath);
-                var response = new { Status = "Success" };
-                return Ok(response);
+                    string connectionstring = "DefaultEndpointsProtocol=https;AccountName=digitalbooksimages;AccountKey=0SWZdFmNHrgIgJCeJtwBd/czrH5Yrcvsr8bh9KNI0ltSAC4PEMIvrwOy0NUOse6sKMm1FcY3hPzJ+ASt6fAyhA==;EndpointSuffix=core.windows.net";
+                    string containerName = "images";
+                    BlobContainerClient container = new BlobContainerClient(connectionstring, containerName);
+                    var blob = container.GetBlobClient(fileName);
+                    var blobstream = file.OpenReadStream();
+                    await blob.UploadAsync(blobstream);
+                    var URI = blob.Uri.AbsoluteUri;
+                    var updateBookDetails = await authorService.UpdateCreateBookDetails(bookModel, dbPath);
+                    var response = new { Status = "Success" };
+                    return Ok(response);
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex);
+                }
             }
             else
             {
@@ -127,12 +119,21 @@ namespace Author.Controllers
             }
         }
 
+
         [HttpDelete]
+        [Route("deleteBookDetails")]
         public async Task<IActionResult> DeleteCreateBookDetails(int id)
         {
-            var deleteBookDetails = await authorService.DeleteCreateBookDetails(id);
-            var response = new { Status = "Success" };
-            return Ok(response);
+            try
+            {
+                var deleteBookDetails = await authorService.DeleteCreateBookDetails(id);
+                var response = new { Status = "Success" };
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex);
+            }
         }
 
         [HttpPut]
